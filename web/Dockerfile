@@ -10,7 +10,6 @@ RUN apk -U upgrade --no-cache && \
     docker-php-ext-install intl pdo_mysql mysqli && \
     curl -sS https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer && \
-    chmod +x /usr/local/bin/composer && \
-    cd web/ && composer install
+    chmod +x /usr/local/bin/composer && composer install
 EXPOSE 9000
 CMD ["php-fpm"]
