@@ -1,0 +1,38 @@
+version: '3.9'
+services:
+  mariadb:
+    container_name: mariadb-ci4-report-product
+    image: mariadb:10.1.48-bionic
+    environment:
+      - MYSQL_ROOT_PASSWORD=123
+      - MYSQL_DATABASE=dev_test114
+    tty: true
+    restart: unless-stopped
+    expose:
+    - 3306
+    volumes:
+      - mariadb-data:/var/lib/mysql
+      - ./mariadb/dev_test114.sql:/docker-entrypoint-initdb.d/dev_test114.sql
+  
+  ci4:
+    container_name: ci4-report-product
+    depends_on:
+      - mariadb
+    build: 
+      context: ./web
+      dockerfile: Dockerfile
+    volumes:
+      - ./web/:/var/www/
+
+  nginx:
+    container_name: nginx-ci4-report-product
+    depends_on:
+      - ci4
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+
+volumes:
+  mariadb-data:
