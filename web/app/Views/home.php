@@ -229,7 +229,7 @@
                 <button onclick="toggleMenu();">&#9776;</button>
             </li>
             <li class="menu-item hidden"><a href="#">Home</a></li>
-            <li class="menu-item hidden"><a href="https://github.com/devrijal/ci4-report-product" target="_blank">Github</a>
+            <li class="menu-item hidden"><a href="https://github.com/devrijal/ci4-demo-dashboard" target="_blank">Github</a>
             </li>
         </ul>
     </div>

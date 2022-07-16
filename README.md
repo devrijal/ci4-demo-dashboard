@@ -9,4 +9,5 @@
 1. Clone this repository.
 2. cd to/project/root/dir
 3. run : *docker compose up*
+4. This app will run at port *80*
 
