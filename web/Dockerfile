@@ -9,6 +9,7 @@ RUN apk -U upgrade --no-cache && \
     apk add zip curl icu-dev && \
     docker-php-ext-install intl pdo_mysql mysqli && \
     curl -sS https://getcomposer.org/installer | php && \
+    chown -R www-data:www-data writable && \
     mv composer.phar /usr/local/bin/composer && \
     chmod +x /usr/local/bin/composer && composer install
 EXPOSE 9000
