@@ -21,8 +21,8 @@ services:
     build: 
       context: ./web
       dockerfile: Dockerfile
-    volumes:
-      - ./web/:/var/www/
+    # volumes:
+    #   - ./web/:/var/www/
 
   nginx:
     container_name: nginx-ci4-report-product
